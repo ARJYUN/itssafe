@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #000000;
+  --fg: #f5f5f7;
+  --mute: #8d8d93;
+  --accent: #e8562a;
+  --line: rgba(255, 255, 255, 0.12);
+  --disp: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
+  --body: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  font-family: var(--body);
+  background-color: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom Typography */
+.font-disp {
+  font-family: var(--disp);
+}
+
+.font-body {
+  font-family: var(--body);
+}
+
+/* Hero Video Mask & Gradient */
+.hero-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.7) 100%),
+              linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.95) 100%);
+  pointer-events: none;
+}
+
+/* Glowing dot & elements */
+.accent-glow {
+  box-shadow: 0 0 16px rgba(232, 86, 42, 0.7);
+}
+
+.accent-glow-strong {
+  box-shadow: 0 0 32px rgba(232, 86, 42, 0.9), 0 0 60px rgba(232, 86, 42, 0.4);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e8562a;
+}
+
+/* Button hover animation */
+.btn-primary {
+  font-family: var(--disp);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 15px;
+  background-color: var(--fg);
+  color: #000;
+  border-radius: 9999px;
+  padding: 12px 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(232, 86, 42, 0.45);
+}
+
+.btn-ghost {
+  font-family: var(--disp);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 15px;
+  background: transparent;
+  color: var(--fg);
+  box-shadow: inset 0 0 0 1px var(--line);
+  border-radius: 9999px;
+  padding: 12px 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  box-shadow: inset 0 0 0 1px var(--fg);
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Animated Pulse line for ECG */
+@keyframes ecgScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ecg {
+  animation: ecgScroll 8s linear infinite;
+}
+
