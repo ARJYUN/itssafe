@@ -149,6 +149,13 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
           </p>
         </div>
       </div>
+
+      {/* Fixed Bottom-Right Brand Text */}
+      <div className="absolute z-10 right-6 sm:right-12 lg:right-16 bottom-10 sm:bottom-14 pointer-events-none text-right">
+        <span className="font-disp font-extrabold uppercase tracking-[0.18em] text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white drop-shadow-2xl select-none">
+          WARBLE AI
+        </span>
+      </div>
     </header>
   );
 };
